@@ -1,32 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" >
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-    </style>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=x3Eoqjr32NZRSsMhQEKZphZu3ex1opoY"></script>
-    <title>地址解析</title>
-</head>
-<body>
-    <div id="allmap"></div>
-</body>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css">
+    <link rel="stylesheet" href="./nCov.css">
+    <title>nCov</title>
+  </head>
+  <body>
+    <p style="text-align:center; width: 100%">
+        <h1 style="text-align:center; width: 100%">
+            信息分布地图
+        </h1>
+    </p>
+    <div class="update">
+        <p>数据来自<a href="https://news.qq.com/zt2020/page/feiyan.htm">腾讯新冠病毒肺炎疫情发布平台</a>，更新于 <span id="lastUpdateTime">2020-02-06 09:22:17</span></p>
+    </div>
+    <div class="recent">
+        <div class="icbar confirm">
+          <div>较上日<span id="nConfirmAdd" style="color: #F55253; fot-size: 20px;">-</span></div>
+          <div id="nConfirm" style="color: #F55253;font-weight: 600; font-size: 36px;">-</div>
+          <div style="font-size: 20px;background-color: #FFE0E0;">全国确诊</div>
+        </div>
+        <div class="icbar suspect">
+          <div>较上日<span id="nSuspectAdd" style="color: #FF961E; fot-size: 20px;">-</span></div>
+          <div id="nSuspect" style="color: #FF961E;font-weight: 600; font-size: 36px;">-</div>
+          <div style="font-size: 20px;background-color: #FFEED9;"><span>疑似病例</span></div>
+        </div>
+        <div class="icbar heal">
+          <div>较上日<span id="nHealAdd" style="color: #178B50; fot-size: 20px;">-</span></div>
+          <div id="nHeal" style="color: #178B50;font-weight: 600; font-size: 36px;">-</div>
+          <div style="font-size: 20px;background-color: #DFEEE6;">治愈人数</div>
+        </div>
+        <div class="icbar dead">
+          <div>较上日<span id="nDeadAdd" style="color: #66666c; fot-size: 20px;">-</span></div>
+          <div id="nDead" style="color: #66666c;font-weight: 600; font-size: 36px;">-</div>
+          <div style="font-size: 20px;background-color: #EEEEEE;">死亡人数</div>
+        </div>
+    </div>
+
+    <div style="text-align:center;width: 100%">
+        <div id="container" class="map" tabindex="0"></div>
+    </div>
+    <script language="javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=e7271db4ee1362787bae1afa19ffb807&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+    <script language="javascript" src="./data.js"></script>
+    <script language="javascript" src="./nCov.js"></script>
+  </body>
+  
 </html>
-<script type="text/javascript">
-    // 百度地图API功能
-    var map = new BMap.Map("allmap");
-    var point = new BMap.Point(116.331398,39.897445);
-    map.centerAndZoom(point,12);
-    // 创建地址解析器实例
-    var myGeo = new BMap.Geocoder();
-    // 将地址解析结果显示在地图上,并调整地图视野
-    myGeo.getPoint("宁波市湾头大桥", function(point){
-        if (point) {
-            map.centerAndZoom(point, 16);
-            map.addOverlay(new BMap.Marker(point));
-        }else{
-            alert("您选择地址没有解析到结果!");
-        }
-    }, "北京市");
-</script>

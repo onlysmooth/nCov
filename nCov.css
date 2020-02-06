@@ -1,0 +1,69 @@
+body {
+    text-align: center;
+    font-size: 14px;
+}
+
+.update {
+    margin: 0 auto;
+    width: 80%;
+    line-height: 20px;
+    font-size: 14px;
+    color: #222222;
+    position: relative;
+    text-shadow: 0 0 black;
+}
+
+.recent {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.icbar {
+    width: 25%;
+    margin-right: 4px;
+    position: relative;
+    text-align: center;
+}
+
+.icbar:first-child {
+    border-radius: 12px 0 0 12px;
+}
+
+.icbar:last-child {
+    border-radius: 0 12px 12px 0;
+}
+
+.icbar.confirm {
+    background-color: #FDF1F1;
+}
+
+.icbar.suspect {
+    background-color: #FFF7ED;
+}
+
+.icbar.heal {
+    background-color: #F1F8F4;
+}
+
+.icbar.dead {
+    background-color: #F8F8F8;
+}
+
+.map {
+    text-align:center;
+    width:80%; 
+    height: 600px; 
+    margin: 0 auto;
+}
+
+.legend {
+    width:375px; 
+}
