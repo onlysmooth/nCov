@@ -5,7 +5,7 @@ body {
 
 .update {
     margin: 0 auto;
-    width: 80%;
+    width: 96%;
     line-height: 20px;
     font-size: 14px;
     color: #222222;
@@ -15,7 +15,7 @@ body {
 
 .recent {
     margin: 0 auto;
-    width: 80%;
+    width: 96%;
     text-align: center;
     font-size: 14px;
     display: flex;
@@ -27,7 +27,7 @@ body {
 }
 
 .icbar {
-    width: 25%;
+    width: 29%;
     margin-right: 4px;
     position: relative;
     text-align: center;
@@ -59,8 +59,8 @@ body {
 
 .map {
     text-align:center;
-    width:80%; 
-    height: 600px; 
+    width:96%; 
+    height: 560px; 
     margin: 0 auto;
 }
 
