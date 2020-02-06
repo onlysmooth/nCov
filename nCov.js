@@ -171,8 +171,8 @@ $(function(){
             zooms: [3, 10],
             showIndoorMap:false,
             zoom: 3,
-            //isHotspot:false,
-            //touchZoomCenter:1,
+            isHotspot:false,
+            touchZoomCenter:1,
             pitch: 0,
             layers:[
                 initCountry,
@@ -196,13 +196,6 @@ $(function(){
             }
         });
     })
-
-    AMap.plugin("AMap.DistrictSearch", function() {
-        var districtSearch = new AMap.DistrictSearch({
-          level: "district",
-          subdistrict: 2
-        });
-    });
 
     // 从腾讯平台获取数据
     $.ajax({
