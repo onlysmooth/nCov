@@ -5,7 +5,7 @@ $(function(){
     // 根据数据匹配颜色
     var getColor = function(count){
         if (count > 5000)
-            return '#420001'
+            return '#420000'
         else if (count >2000)
             return '#590000'
         else if (count > 1000)
