@@ -1,37 +1,6 @@
-## Welcome to GitHub Pages
+## 2019nCov新冠病毒疫情分布地图
 
-You can use the [editor on GitHub](https://github.com/onlysmooth/nCov/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+1. 数据来源：[腾讯新型冠状病毒感染肺炎疫情实时信息发布平台](https://news.qq.com/zt2020/page/feiyan.htm)
+2. 地图展现：利用高德地图开发平台的API
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/onlysmooth/nCov/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+从腾讯疫情实时发布平台获取数据，更新页面的全国概览显示和地图可视化展示，页面部署至Github Pages。
