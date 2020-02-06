@@ -95,7 +95,7 @@ $(function(){
     var map = new AMap.Map("container",{
             zooms: [3, 10],
             showIndoorMap:false,
-            zoom: 4,
+            zoom: 3,
             isHotspot:false,
             touchZoomCenter:1,
             pitch: 0,
