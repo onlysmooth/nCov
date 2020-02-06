@@ -105,7 +105,7 @@ $(function(){
             ],
             viewMode:'2D',
             resizeEnable: true,
-            center: [105.00,38.0]
+            center: [105.00,32.0]
     })
     map.addControl(new AMap.Scale());
     map.addControl(new AMap.ToolBar({liteStyle:true}));
