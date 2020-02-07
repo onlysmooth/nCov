@@ -81,3 +81,30 @@ body {
     height: 420px; 
     margin: 0 auto;
 }
+
+.evolve {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    position: relative;
+
+}
+
+.evolve .btn {
+    width: 10%;
+    height: 30px;
+    position: relative;
+    text-align: center;
+}
+
+.evolve .date {
+    width: 20%;
+    height: 30px;
+    position: relative;
+    text-align: center;
+}
