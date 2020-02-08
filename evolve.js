@@ -1,6 +1,7 @@
 $(function () {
 
     var whole
+    var confirmed = {}
     var getLevel = function(count){
         if (count > 5000)
             return 16
@@ -48,7 +49,7 @@ $(function () {
     emap.plugin(["AMap.Heatmap"], function () {
         //初始化heatmap对象
         heatmap = new AMap.Heatmap(emap, {
-            radius: 25, //给定半径
+            radius: 30, //给定半径
             opacity: [0, 0.8],
             // gradient:{
             //     0.5: 'blue',
@@ -71,15 +72,20 @@ $(function () {
                     for (let i = 0; i < pCities.length; i++) {
                         if (pCities[i].cityName in cities) {
                             let city = cities[pCities[i].cityName]
-                            points.push({ "lng": city.lng, "lat": city.lat, "count": pCities[i].confirmedCount })
+                            confirmed[pCities[i].cityName] = { lng: city.lng, lat: city.lat, count: getLevel(pCities[i].confirmedCount) }
+                            //points.push()
                         }
                     }
                 }
             }
         }
+        for(var city in confirmed) {
+            points.push(confirmed[city])
+        }
+        console.log(points)
         heatmap.setDataSet({
             data: points,
-            max: 1000
+            max: 16
         })
         //console.log(cities)
     }
@@ -135,7 +141,7 @@ $(function () {
     }).done(function (resp) {     // 请求成功以后的操作
         console.log("completed.")
         whole = resp.results
-        getCitiesCountByDate(whole, 2020, 1, 24)
+        getCitiesCountByDate(whole, 2020, 0, 24)
         //getCitiesLngLat(resp.results)
     }).fail(function (error) {    // 请求失败以后的操作
         console.log(error);
@@ -146,15 +152,16 @@ $(function () {
     $("#evolveDate").text(evolveDate.toLocaleDateString());
 
     $("#prev").on("click", function() {
-        evolveDate.setDate(evolveDate.getDate()-1)
-        console.log(evolveDate.toLocaleDateString())
+        evolveDate.setFullYear(2020,1,24)
+        confirmed = {}
+        //console.log(evolveDate.toLocaleDateString())
         $("#evolveDate").text(evolveDate.toLocaleDateString());
         getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
     })
 
     $("#next").on("click", function() {
         evolveDate.setDate(evolveDate.getDate()+1)
-        console.log(evolveDate.toLocaleDateString())
+        //console.log(evolveDate.toLocaleDateString())
         $("#evolveDate").text(evolveDate.toLocaleDateString());
         getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
     })
