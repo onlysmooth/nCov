@@ -40,15 +40,15 @@ $(function () {
     // 显示地图
     var emap = new AMap.Map("evolve", {
         resizeEnable: true,
-        center: [105.00, 37.0],
-        zoom: 4
+        center: [104.00, 37.0],
+        zoom: 3.5
     });
 
     var heatmap
     emap.plugin(["AMap.Heatmap"], function () {
         //初始化heatmap对象
         heatmap = new AMap.Heatmap(emap, {
-            radius: 40, //给定半径
+            radius: 25, //给定半径
             opacity: [0, 0.8],
             // gradient:{
             //     0.5: 'blue',

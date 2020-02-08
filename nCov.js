@@ -170,7 +170,7 @@ $(function(){
     var map = new AMap.Map("container",{
             zooms: [3, 10],
             showIndoorMap:false,
-            zoom: 3,
+            zoom: 3.5,
             isHotspot:false,
             touchZoomCenter:1,
             pitch: 0,
@@ -180,7 +180,7 @@ $(function(){
             ],
             viewMode:'2D',
             resizeEnable: true,
-            center: [105.00,32.0],
+            center: [104.00, 37.0],
     })
     map.addControl(new AMap.Scale());
     map.on('click',function(e){

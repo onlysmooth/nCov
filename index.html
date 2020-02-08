@@ -43,6 +43,10 @@
     </div>
   </div>
 
+  <div style="text-align:center;width: 100%">
+    <div id="container" class="map" tabindex="0"></div>
+  </div>
+
   <div class="legend">
     <div class="colorbar" style="background-color: #FFFFFF; width: 4%;"></div>
     <div class="colorbar" style="background-color: #FFDFDF;"></div>
@@ -63,22 +67,21 @@
     <div class="colorbar" style="background-color: #420000;"></div>
   </div>
 
-  <div style="text-align:center;width: 100%">
-    <div id="container" class="map" tabindex="0"></div>
-  </div>
-
-  <p style="text-align:center; width: 100%">
+  <p style="text-align:center; width: 100%; padding-top: 20px;">
     <h1 style="text-align:center; width: 100%">
       2019nCov疫情演进
     </h1>
   </p>
-  <div class="evolve">
-    <div class="btn" id="prev">前一天</div>
-    <div class="date"><span id="evolveDate">2020-0-0</span></div>
-    <div class="btn" id="next">后一天</div>
+  <div class="update">
+    <p>数据来自<a href="https://lab.isaaclin.cn/nCoV/">全国新型肺炎疫情实时数据接口</a></p>
   </div>
-  <div style="text-align:center;width: 100%">
+  <div style="text-align:center;width: 100%; padding-top: 30px;">
     <div id="evolve" class="map" style="height: 560px;" tabindex="1"></div>
+  </div>
+  <div class="evolve">
+    <div class="btn" id="prev">《</div>
+    <div class="date"><span id="evolveDate">2020-0-0</span></div>
+    <div class="btn" id="next">》</div>
   </div>
 
   <div class="update" style="padding-top:30px; padding-bottom: 30px;">
