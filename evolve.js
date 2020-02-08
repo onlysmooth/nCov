@@ -31,7 +31,7 @@ $(function () {
             return 4
         else if (count > 20)
             return 3
-        else if (count >= 10)
+        else if (count >= 5)
             return 2
         else if (count > 0)
             return 1
@@ -52,9 +52,9 @@ $(function () {
             radius: 30, //给定半径
             opacity: [0, 0.8],
             gradient:{
-                0.5: '#777777',
-                0.65:'#555555',
-                0.7: '#333333',
+                0.5: '#AAAAAA',
+                0.65:'#777777',
+                0.7: '#444444',
                 0.9: '#111111',
                 1.0: 'black'
             }
@@ -128,23 +128,7 @@ $(function () {
     // }
 
     var evolveDate = new Date('2020-01-24')
-    //evolveDate.setDate(evolveDate.getDate()-1)
-    $("#evolveDate").text(evolveDate.toLocaleDateString());
-
-    $("#prev").on("click", function() {
-        evolveDate.setFullYear(2020,0,24)
-        confirmed = {}
-        //console.log(evolveDate.toLocaleDateString())
-        $("#evolveDate").text(evolveDate.toLocaleDateString());
-        getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
-    })
-
-    $("#next").on("click", function() {
-        evolveDate.setDate(evolveDate.getDate()+1)
-        //console.log(evolveDate.toLocaleDateString())
-        $("#evolveDate").text(evolveDate.toLocaleDateString());
-        getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
-    })
+    $("#evolveDate").text("正在加载疫情数据...");
 
     // 从腾讯平台获取数据
     $.ajax({
@@ -156,6 +140,22 @@ $(function () {
         },
     }).done(function (resp) {     // 请求成功以后的操作
         //console.log("completed.")
+        $("#evolveDate").text(evolveDate.toLocaleDateString());
+        $("#prev").on("click", function() {
+            evolveDate.setFullYear(2020,0,24)
+            confirmed = {}
+            //console.log(evolveDate.toLocaleDateString())
+            $("#evolveDate").text(evolveDate.toLocaleDateString());
+            getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
+        })
+    
+        $("#next").on("click", function() {
+            evolveDate.setDate(evolveDate.getDate()+1)
+            //console.log(evolveDate.toLocaleDateString())
+            $("#evolveDate").text(evolveDate.toLocaleDateString());
+            getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
+        })
+
         whole = resp.results
         getCitiesCountByDate(whole, 2020, 1, 24)
         //getCitiesLngLat(resp.results)
