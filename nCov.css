@@ -3,6 +3,12 @@ body {
     font-size: 14px;
 }
 
+.title {
+    margin: 0 auto;
+    width: 720px;
+    position: relative;
+}
+
 .update {
     margin: 0 auto;
     width: 720px;
