@@ -51,13 +51,13 @@ $(function () {
         heatmap = new AMap.Heatmap(emap, {
             radius: 30, //给定半径
             opacity: [0, 0.8],
-            // gradient:{
-            //     0.5: 'blue',
-            //     0.65: 'rgb(117,211,248)',
-            //     0.7: 'rgb(0, 255, 0)',
-            //     0.9: '#ffea00',
-            //     1.0: 'red'
-            // }
+            gradient:{
+                0.5: '#777777',
+                0.65:'#555555',
+                0.7: '#333333',
+                0.9: '#111111',
+                1.0: 'black'
+            }
         });
     });
 
@@ -73,7 +73,6 @@ $(function () {
                         if (pCities[i].cityName in cities) {
                             let city = cities[pCities[i].cityName]
                             confirmed[pCities[i].cityName] = { lng: city.lng, lat: city.lat, count: getLevel(pCities[i].confirmedCount) }
-                            //points.push()
                         }
                     }
                 }
@@ -82,7 +81,7 @@ $(function () {
         for(var city in confirmed) {
             points.push(confirmed[city])
         }
-        console.log(points)
+        //console.log(points)
         heatmap.setDataSet({
             data: points,
             max: 16
@@ -128,31 +127,12 @@ $(function () {
     //     getLocation(index)
     // }
 
-
-
-    // 从腾讯平台获取数据
-    $.ajax({
-        url: 'https://lab.isaaclin.cn/nCoV/api/area',
-        type: 'get',
-        dataType: 'json',  // 返回的数据格式，常用的有是'json','html',"jsonp"
-        data: {
-            latest: 0
-        },
-    }).done(function (resp) {     // 请求成功以后的操作
-        console.log("completed.")
-        whole = resp.results
-        getCitiesCountByDate(whole, 2020, 0, 24)
-        //getCitiesLngLat(resp.results)
-    }).fail(function (error) {    // 请求失败以后的操作
-        console.log(error);
-    });
-
     var evolveDate = new Date('2020-01-24')
     //evolveDate.setDate(evolveDate.getDate()-1)
     $("#evolveDate").text(evolveDate.toLocaleDateString());
 
     $("#prev").on("click", function() {
-        evolveDate.setFullYear(2020,1,24)
+        evolveDate.setFullYear(2020,0,24)
         confirmed = {}
         //console.log(evolveDate.toLocaleDateString())
         $("#evolveDate").text(evolveDate.toLocaleDateString());
@@ -165,4 +145,21 @@ $(function () {
         $("#evolveDate").text(evolveDate.toLocaleDateString());
         getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
     })
+
+    // 从腾讯平台获取数据
+    $.ajax({
+        url: 'https://lab.isaaclin.cn/nCoV/api/area',
+        type: 'get',
+        dataType: 'json',  // 返回的数据格式，常用的有是'json','html',"jsonp"
+        data: {
+            latest: 0
+        },
+    }).done(function (resp) {     // 请求成功以后的操作
+        //console.log("completed.")
+        whole = resp.results
+        getCitiesCountByDate(whole, 2020, 1, 24)
+        //getCitiesLngLat(resp.results)
+    }).fail(function (error) {    // 请求失败以后的操作
+        console.log(error);
+    });
 })
