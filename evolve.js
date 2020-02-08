@@ -51,12 +51,29 @@ $(function () {
         heatmap = new AMap.Heatmap(emap, {
             radius: 30, //给定半径
             opacity: [0, 0.8],
-            gradient:{
-                0.5: '#AAAAAA',
-                0.65:'#777777',
-                0.7: '#444444',
-                0.9: '#111111',
-                1.0: 'black'
+            // gradient:{
+            //     0.5: '#AAAAAA',
+            //     0.65:'#777777',
+            //     0.7: '#444444',
+            //     0.9: '#111111',
+            //     1.0: 'black'
+            // }
+            gradient: {
+                0.0625: '#FFBFBF',
+                0.125: '#FF9F9F',
+                0.1875: '#FF7F7F',
+                0.25: '#FF5F5F',
+                0.3125: '#FF3F3F',
+                0.375: '#FF1F1F',
+                0.4375: '#FF0000',
+                0.5: '#E70000',
+                0.5625: '#CF0000',
+                0.625: '#B80000',
+                0.6875: '#A00000',
+                0.8125: '#880000',
+                0.875: '#710000',
+                0.9375: '#590000',
+                1.0: '#420000'
             }
         });
     });
@@ -139,7 +156,7 @@ $(function () {
             latest: 0
         },
     }).done(function (resp) {     // 请求成功以后的操作
-        //console.log("completed.")
+        //console.log(resp.results)
         $("#evolveDate").text(evolveDate.toLocaleDateString());
         $("#prev").on("click", function() {
             evolveDate.setFullYear(2020,0,24)

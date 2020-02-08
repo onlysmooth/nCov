@@ -141,8 +141,8 @@ $(function(){
             'nation-stroke':'#22ffff',
             'coastline-stroke':[0.85, 0.63, 0.94, 1],
             'province-stroke':'white',
-            'city-stroke': 'rgba(255,255,255,0.5)',//中国特有字段
-            'fill':function(props){//中国特有字段
+            'city-stroke': 'rgba(255,255,255,0.5)',
+            'fill':function(props){
                return 'rgb(227, 227, 227)'
             }
         }
@@ -157,8 +157,8 @@ $(function(){
             'nation-stroke':'#22ffff',
             'coastline-stroke':[0.85, 0.63, 0.94, 1],
             'province-stroke':'white',
-            'city-stroke': 'rgba(255,255,255,0.5)',//中国特有字段
-            'fill':function(props){//中国特有字段
+            'city-stroke': 'rgba(255,255,255,0.5)',
+            'fill':function(props){
                return getColorByProvince(props.NAME_CHN) //getColorByDGP(props.adcode_pro)
             }
         }
