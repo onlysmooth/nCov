@@ -10,6 +10,8 @@ $(function () {
 
     var marker = new AMap.Marker({
         offset: new AMap.Pixel(-170, -10),
+        //animation: false,
+        collision: false
     });
 
     var showMarkers = function (data) {
