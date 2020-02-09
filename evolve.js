@@ -84,7 +84,7 @@ $(function () {
             const element = area[index];
             if (element.country == '中国' && ('cities' in element)) {
                 var d = new Date(parseInt(element.updateTime))
-                if (d.getFullYear() == year && d.getMonth() + 1 == month && d.getDate() == day) {
+                if (d.getFullYear() == year && d.getMonth() == month && d.getDate() == day) {
                     var pCities = element.cities
                     for (let i = 0; i < pCities.length; i++) {
                         if (pCities[i].cityName in cities) {
@@ -163,18 +163,18 @@ $(function () {
             confirmed = {}
             //console.log(evolveDate.toLocaleDateString())
             $("#evolveDate").text(evolveDate.toLocaleDateString());
-            getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
+            getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth(), evolveDate.getDate())
         })
     
         $("#next").on("click", function() {
             evolveDate.setDate(evolveDate.getDate()+1)
             //console.log(evolveDate.toLocaleDateString())
             $("#evolveDate").text(evolveDate.toLocaleDateString());
-            getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth()+1, evolveDate.getDate())
+            getCitiesCountByDate(whole, evolveDate.getFullYear(), evolveDate.getMonth(), evolveDate.getDate())
         })
 
         whole = resp.results
-        getCitiesCountByDate(whole, 2020, 1, 24)
+        getCitiesCountByDate(whole, 2020, 0, 24)
         //getCitiesLngLat(resp.results)
     }).fail(function (error) {    // 请求失败以后的操作
         console.log(error);
