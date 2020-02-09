@@ -147,7 +147,7 @@ $(function () {
     var evolveDate = new Date('2020-01-24')
     $("#evolveDate").text("正在加载疫情数据...");
 
-    // 从腾讯平台获取数据
+    //
     $.ajax({
         url: 'https://lab.isaaclin.cn/nCoV/api/area',
         type: 'get',
